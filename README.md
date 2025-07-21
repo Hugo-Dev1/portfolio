@@ -10,7 +10,7 @@ Bienvenido a mi portafolio web, donde muestro mis proyectos y habilidades como d
 ## App de Notas Inteligente
 * **Tecnologías**: Flutter, Dart, SQLite, Provider
 * **Características**: Navegación lateral, sistema de favoritos, recordatorios, búsqueda
-* **Descarga**: APK disponible
+* **Descarga**: [APK disponible](downloads/noteaa.apk)
 
 ## Sistema de Gestión de Correos
 * **Tecnologías**: Python, Flask, SQLite, Brevo API, Vercel
