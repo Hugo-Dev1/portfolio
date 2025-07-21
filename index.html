@@ -59,15 +59,15 @@
         }
 
         .nav-links a {
-            color: white;
+            color: #b0b0b0; /* Gris suave */
             text-decoration: none;
             transition: color 0.3s ease;
             font-weight: 500;
         }
 
         .nav-links a:hover {
-            color: #64b5f6;
-            text-shadow: 0 0 10px rgba(100, 181, 246, 0.5);
+            color: #d1d1d1; /* Gris más claro en hover */
+            text-shadow: 0 0 10px rgba(209, 209, 209, 0.5);
         }
 
         /* Hero Section */
@@ -180,7 +180,7 @@
             height: 250px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid #667eea;
+            border: 5px solid #9e9e9e;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
@@ -311,6 +311,15 @@
             background: #0056b3;
         }
 
+        .screenshots-link {
+            background: #dc3545;
+            color: white;
+        }
+
+        .screenshots-link:hover {
+            background: #c82333;
+        }
+
         /* Contact Section */
         .contact {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
@@ -426,6 +435,104 @@
             0%, 100% { transform: translateY(0) rotate(0deg); }
             50% { transform: translateY(-20px) rotate(180deg); }
         }
+
+        /* Modal de screenshots */
+        .screenshot-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .screenshot-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            gap: 20px;
+            padding: 20px;
+            flex-wrap: wrap;
+            overflow-y: auto;
+        }
+
+        .screenshot-img {
+            max-height: 80vh;
+            max-width: 300px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .screenshot-img:hover {
+            transform: scale(1.05);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            z-index: 1001;
+        }
+
+        .close-modal:hover {
+            color: #ff6b6b;
+        }
+
+        .screenshot-title {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            z-index: 1001;
+        }
+
+        /* Estilo para el botón de screenshots */
+        .screenshots-link {
+            background: #dc3545;
+            color: white;
+        }
+
+        .screenshots-link:hover {
+            background: #c82333;
+        }
+
+        /* Responsive para móviles */
+        @media (max-width: 768px) {
+            .screenshot-content {
+                flex-direction: column;
+                padding: 60px 20px 20px;
+            }
+            
+            .screenshot-img {
+                max-width: 90%;
+                max-height: 60vh;
+            }
+            
+            .close-modal {
+                font-size: 30px;
+                top: 15px;
+                right: 20px;
+            }
+            
+            .screenshot-title {
+                font-size: 18px;
+                top: 20px;
+                left: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -540,6 +647,9 @@
                         <div class="project-links">
                             <a href="#" class="project-link download-link">
                                 <i class="fab fa-android"></i> APK
+                            </a>
+                            <a href="#" class="project-link screenshots-link" onclick="openScreenshots('notes-app')">
+                                <i class="fas fa-images"></i> Ver Screenshots
                             </a>
                         </div>
                     </div>
@@ -664,7 +774,7 @@
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>Apaseo el Alto, Guanajuato, MX</span>
+                        <span>Guanajuato, MX</span>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
@@ -673,16 +783,16 @@
                 </div>
 
                 <div class="social-links">
-                    <a href="#" class="social-link" title="GitHub">
+                    <!-- <a href="#" class="social-link" title="GitHub">
                         <i class="fab fa-github"></i>
-                    </a>
-                    <a href="#" class="social-link" title="LinkedIn">
+                    </a> -->
+                    <a href="https://www.linkedin.com/in/hugo-mu%C3%B1oz-ti?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bgjpu81MgS6mglExciKHiiA%3D%3D" class="social-link" title="LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="#" class="social-link" title="Twitter">
+                    <!-- <a href="#" class="social-link" title="Twitter">
                         <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="social-link" title="Email">
+                    </a> -->
+                    <a href="mailto:hugomunozve@gmail.com" class="social-link" title="Email">
                         <i class="fas fa-envelope"></i>
                     </a>
                 </div>
@@ -779,6 +889,81 @@
             card.style.transform = 'translateY(30px)';
             card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(card);
+        });
+
+        // Configuración de screenshots para cada proyecto
+        const projectScreenshots = {
+            'notes-app': {
+                title: 'App de Notas - Screenshots',
+                images: [
+                    {
+                        src: 'downloads/screenshots/main-screen.png',
+                        alt: 'Pantalla principal'
+                    },
+                    {
+                        src: 'downloads/screenshots/create-note.png',
+                        alt: 'Crear nota'
+                    },
+                    {
+                        src: 'downloads/screenshots/note-detail.png',
+                        alt: 'Detalle de nota'
+                    },
+                    {
+                        src: 'downloads/screenshots/drawer-menu.png',
+                        alt: 'Menú lateral'
+                    }
+                ]
+            }
+            // Puedes agregar más proyectos aquí
+        };
+
+        function openScreenshots(projectId) {
+            const modal = document.getElementById('screenshot-modal');
+            const content = document.getElementById('screenshot-content');
+            const titleElement = document.querySelector('.screenshot-title');
+            
+            const project = projectScreenshots[projectId];
+            if (!project) return;
+            
+            // Actualizar título
+            titleElement.textContent = project.title;
+            
+            // Limpiar contenido previo
+            content.innerHTML = '';
+            
+            // Agregar imágenes
+            project.images.forEach(image => {
+                const img = document.createElement('img');
+                img.src = image.src;
+                img.alt = image.alt;
+                img.className = 'screenshot-img';
+                img.title = image.alt;
+                content.appendChild(img);
+            });
+            
+            // Mostrar modal
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevenir scroll del body
+        }
+
+        function closeScreenshots() {
+            const modal = document.getElementById('screenshot-modal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restaurar scroll del body
+        }
+
+        // Cerrar modal al hacer clic fuera de las imágenes
+        document.getElementById('screenshot-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeScreenshots();
+            }
+        });
+
+        // Cerrar modal con tecla ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeScreenshots();
+            }
         });
     </script>
 </body>
