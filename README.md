@@ -3,39 +3,42 @@
 Bienvenido a mi portafolio web, donde muestro mis proyectos y habilidades como desarrollador.
 
 ## 🌐 Ver en vivo
-[https://tu-usuario.github.io](https://tu-usuario.github.io)
+[Portafolio](https://hugo-dev1.github.io/portfolio/)
 
-## 📱 Proyectos Destacados
+# Proyectos Destacados
 
-### App de Notas Inteligente
-- **Tecnologías**: Flutter, Dart, SQLite, Provider
-- **Características**: Navegación lateral, sistema de favoritos, recordatorios, búsqueda
-- **Descarga**: [APK disponible](downloads/notes-app.apk)
+## App de Notas Inteligente
+* **Tecnologías**: Flutter, Dart, SQLite, Provider
+* **Características**: Navegación lateral, sistema de favoritos, recordatorios, búsqueda
+* **Descarga**: APK disponible
 
-## 🛠️ Tecnologías
+## Sistema de Gestión de Correos
+* **Tecnologías**: Python, Flask, SQLite, Brevo API, Vercel
+* **Características**: Envío real de emails, rate limiting, historial completo, búsqueda avanzada, soft delete
+* **Demo**: Ver en vivo | Código
+
+# 🛠️ Tecnologías
 
 **Frontend:**
-- HTML5, CSS3, JavaScript
-- Flutter, Dart
-- Responsive Design
+* HTML5, CSS3, JavaScript
+* Flutter, Dart
+* Responsive Design
 
 **Backend:**
-- python
-- Dart
-- php
+* Python, Flask
+* Dart
 
 **Bases de Datos:**
-- SQLite
-- MySQL
+* SQLite
+* MySQL
 
 **Herramientas:**
-- Git, GitHub
-- Flutter
-- Docker
+* Git, GitHub
+* Android Studio
 
 **Frameworks:**
-- Laravel
-- Flask
+* Laravel
+* Flask
 
 ## ✨ Características del Portafolio
 
@@ -44,19 +47,6 @@ Bienvenido a mi portafolio web, donde muestro mis proyectos y habilidades como d
 - 🖼️ **Galería de screenshots**: Modal interactivo para ver capturas
 - 📥 **Descargas directas**: APKs y archivos disponibles
 - 🌙 **Efectos visuales**: Animaciones y transiciones suaves
-
-## 🚀 Instalación Local
-
-```bash
-# Clonar el repositorio
-git clone https://github.com/tu-usuario/portfolio.git
-
-# Navegar al directorio
-cd portfolio
-
-# Abrir en navegador
-# Simplemente abre index.html en tu navegador favorito
-```
 
 ## 📁 Estructura del Proyecto
 
@@ -68,11 +58,18 @@ portfolio/
 │   └── profile.jpg    # Foto de perfil
 ├── downloads/         # Archivos descargables
 │   ├── notes-app.apk  # App de notas
+│   ├── gestor_tareas.exe # ejecutable gertor de tareas
+│   ├── libreta_clientes.exe # ejecutable gestor de clientes
 │   └── screenshots/   # Capturas de pantalla
 │       ├── main-screen.png
 │       ├── create-note.png
 │       ├── note-detail.png
 │       └── drawer-menu.png
+├── projects/
+├── customer-manager/  # codigo gestor clientes
+│   └── libreta_clientes.py 
+├── task-manager/   # codigo gestor tareas
+│   └── db.py    
 └── README.md          # Este archivo
 ```
 
@@ -86,10 +83,9 @@ portfolio/
 
 ## 📞 Contacto
 
-- 📧 **Email**: tu-email@gmail.com
-- 💼 **LinkedIn**: [Tu perfil](https://linkedin.com/in/tu-perfil)
-- 🐙 **GitHub**: [Tu GitHub](https://github.com/tu-usuario)
-- 🌐 **Portafolio**: [https://tu-usuario.github.io](https://tu-usuario.github.io)
+- 📧 **Email**: hugomunozve@gmail.com
+- 💼 **LinkedIn**: [Mi perfil](https://www.linkedin.com/in/hugo-mu%C3%B1oz-ti?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bgjpu81MgS6mglExciKHiiA%3D%3D)
+- 🌐 **Portafolio**: [Portafolio en github pages](https://hugo-dev1.github.io/portfolio/)
 
 ## 📄 Licencia
 
@@ -99,4 +95,4 @@ Este proyecto está bajo la Licencia MIT. Siéntete libre de usar el código com
 
 ⭐ Si te gusta este portafolio, ¡dale una estrella al repositorio!
 
-**Desarrollado con ❤️ por HugoMunoz**
+**Desarrollado con ❤️ por Hugo Muñoz**
